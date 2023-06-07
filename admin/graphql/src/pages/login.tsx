@@ -21,11 +21,17 @@ export default function LoginPage() {
   }
   const { t } = useTranslation('common');
   return (
-    <AuthPageLayout>
-      <h3 className="text-center text-base italic text-body mb-6 mt-4">
-        {t('admin-login-title')}
-      </h3>
-      <LoginForm />
-    </AuthPageLayout>
+    <>
+    <div>
+      fljdsfksjkf
+    </div>
+      {/* <AuthPageLayout>
+        <h3 className="text-center text-base italic text-body mb-6 mt-4">
+          {t('admin-login-title')}
+        </h3>
+        <LoginForm />
+      </AuthPageLayout> */}
+    
+    </>
   );
 }

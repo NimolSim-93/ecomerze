@@ -26,7 +26,7 @@ export default function LoginPage() {
       <h3 className="mb-6 mt-4 text-center text-base italic text-body">
         {t('admin-login-title')}
       </h3>
-      <LoginForm />
+      {/* <LoginForm /> */}
     </AuthPageLayout>
   );
 }

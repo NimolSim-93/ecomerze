@@ -23,6 +23,7 @@ const nextConfig = {
       'pickbazar-sail.test',
       'localhost',
       'lh3.googleusercontent.com',
+      'pickbazarlaravel.s3.ap-southeast-1.amazonaws.com'
     ],
   },
   ...(process.env.APPLICATION_MODE === 'production' && {

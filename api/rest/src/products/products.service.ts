@@ -9,8 +9,7 @@ import productsJson from '@db/products.json';
 import Fuse from 'fuse.js';
 import { GetPopularProductsDto } from './dto/get-popular-products.dto';
 
-const products:any = plainToClass(Product, productsJson);
-
+const products: any = plainToClass(Product, productsJson);
 const options = {
   keys: [
     'name',
@@ -29,7 +28,6 @@ const fuse = new Fuse(products, options);
 @Injectable()
 export class ProductsService {
   private products: any = products;
-
   create(createProductDto: CreateProductDto) {
     return this.products[0];
   }
@@ -57,7 +55,7 @@ export class ProductsService {
         .search({
           $and: searchText,
         })
-        ?.map(({ item }) => item);
+        ?.map(({ item }) => item) as Product[];
     }
 
     const results = data.slice(startIndex, endIndex);
@@ -88,6 +86,7 @@ export class ProductsService {
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
+    // console.log(updateProductDto,this.products[0])
     return this.products[0];
   }
 

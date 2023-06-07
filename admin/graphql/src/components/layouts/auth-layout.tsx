@@ -14,6 +14,9 @@ const AuthPageLayout: React.FC = ({ children }) => {
         <div className="flex justify-center mb-2">
           <Logo />
         </div>
+        <div>
+          lkfdsjkfldsf
+        </div>
         {children}
       </div>
     </div>
