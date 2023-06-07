@@ -8,6 +8,7 @@ import { paginate } from 'src/common/pagination/paginate';
 import productsJson from '@db/products.json';
 import Fuse from 'fuse.js';
 import { GetPopularProductsDto } from './dto/get-popular-products.dto';
+import { Repository } from 'typeorm';
 
 const products: any = plainToClass(Product, productsJson);
 const options = {
@@ -23,15 +24,13 @@ const options = {
   ],
   threshold: 0.3,
 };
+
 const fuse = new Fuse(products, options);
 
 @Injectable()
 export class ProductsService {
   private products: any = products;
-  create(createProductDto: CreateProductDto) {
-    return this.products[0];
-  }
-
+  constructor(private readonly repos: Repository<Product>) {}
   getProducts({ limit, page, search }: GetProductsDto): ProductPaginator {
     if (!page) page = 1;
     if (!limit) limit = 30;
@@ -87,10 +86,14 @@ export class ProductsService {
 
   update(id: number, updateProductDto: UpdateProductDto) {
     // console.log(updateProductDto,this.products[0])
+    this.repos.query("create table product(name text)",)
     return this.products[0];
   }
 
   remove(id: number) {
     return `This action removes a #${id} product`;
+  }
+  create(createProductDto: CreateProductDto) {
+    return createProductDto;
   }
 }

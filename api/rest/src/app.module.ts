@@ -28,6 +28,9 @@ import { WishlistsModule } from './wishlists/wishlists.module';
 import { ReportsModule } from './reports/reports.module';
 import { FeedbackModule } from './feedbacks/feedbacks.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Product } from './products/entities/product.entity';
+import { ProductsController } from './products/products.controller';
+import { ProductsService } from './products/products.service';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -68,8 +71,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     WishlistsModule,
     ReportsModule,
     FeedbackModule,
+    TypeOrmModule.forFeature([Product]),
   ],
-  controllers: [],
-  providers: [],
+  controllers: [ProductsController],
+  providers: [ProductsService],
 })
 export class AppModule {}
